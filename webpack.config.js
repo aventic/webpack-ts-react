@@ -23,6 +23,17 @@ module.exports = (env) => {
                     exclude: /node_modules/
                 },
                 {
+                    test: /\.svg$/,
+                    use: [
+                        {
+                            loader: 'raw-loader'
+                        },
+                        {
+                            loader: 'svgo-loader'
+                        }
+                    ]
+                },
+                {
                     test: /\.s?css$/,
                     use: ExtractTextPlugin.extract({
                         use: [
